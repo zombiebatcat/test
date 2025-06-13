@@ -1,0 +1,82 @@
+:root {
+    color-scheme: dark light;
+    --btn-color: rgb(255, 192, 255);
+    --btn-bg-color: rgb(174, 67, 174);
+    --btn-hover: rgb(210, 53, 210);
+    --btn-active: rgb(111, 29, 111);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color: rgb(147, 97, 147);
+        --bg-color: rgb(35, 31, 37);
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --color: rgb(70, 46, 70);
+        --bg-color: rgb(196, 188, 200);
+    }
+}
+
+::selection {
+    background-color: var(--color);
+    color: var(--bg-color);
+}
+
+html {
+    background-color: var(--bg-color);
+}
+
+body::before {
+    content: '';
+    display: block;
+    height: 50px;
+}
+
+button {
+    transition-property: background-color, translate, scale, color;
+    transition-duration: .3s;
+    border: none;
+    background-color: var(--btn-bg-color);
+    color: var(--btn-color);
+    border-radius: 3px;
+    outline: none;
+    user-select: none;
+}
+
+button:hover {
+    scale: 1.05;
+    background-color: var(--btn-hover);
+    transition-duration: .08s;
+    outline: 1px solid var(--btn-hover);
+    outline-offset: 2px;
+    color: white;
+}
+
+button:active {
+    scale: 0.95;
+    translate: 1px 1px;
+    background-color: var(--btn-active);
+}
+
+.button-bar {
+    padding: 5px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(150, 120, 160, 0.147);
+}
+
+.button-bar>button {
+    margin: 5px;
+    line-height: 36px;
+    padding: 0 15px;
+}
+
+.data {
+    white-space: pre-wrap;
+    color: var(--color);
+}
